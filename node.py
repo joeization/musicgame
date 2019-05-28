@@ -1,7 +1,7 @@
 import pygame
 import random
 
-hit_range = 30
+hit_range = 60
 size = (1440, 900)
 
 
@@ -27,14 +27,17 @@ class Node(object):
         if(self.y >= (size[1]-100+hit_range)) and self.has in enemy[self.ind]:
             enemy[self.ind].remove(self.has)
             combo[0] = 0
-        return self.y > size[1] or (self.y >= (size[1]-100-hit_range)) and not self.has in enemy[self.ind]
+        return self.y > size[1] or (self.y >= (size[1]-100-hit_range)) and \
+            self.has not in enemy[self.ind]
 
     def blit(self, screen):
-        #pygame.draw.circle(screen, self.color, (self.x, self.y), 20, 10)
-        g = 255*self.y/(size[1])
-        color = (255-g, g, 128)
-        pygame.draw.rect(screen, color, (self.x-20, self.y-5, 40, 10), 0)
-        #pygame.draw.rect(screen, self.color, (self.x-20, self.y-5, 40, 10), 0)
+        # pygame.draw.circle(screen, self.color, (self.x, self.y), 20, 10)
+        # g = 255*self.y/(size[1])
+        # color = (255-g, g, 128)
+        # pygame.draw.rect(screen, color, (self.x-20, self.y-5, 40, 10), 0)
+        pygame.draw.rect(screen, (0, 0, 255), (self.x-20, self.y-5, 40, 10), 0)
+        # pygame.draw.rect(screen, self.color,
+        #                   (self.x-20, self.y-5, 40, 10), 0)
 
 
 def showNode(screen, NodeList, enemy, combo, n_all, tik):

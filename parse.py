@@ -24,7 +24,8 @@ class Parse(object):
             try:
                 t, k = map(float, s.strip().split(' '))
                 k = int(k)
-                color = (random.randint(128, 255), random.randint(128, 255), random.randint(128, 255))
+                color = (random.randint(128, 255), random.randint(
+                    128, 255), random.randint(128, 255))
                 buf.append(Node(pos[k], color, k, t*self.width+self.offset))
             except:
                 pass
